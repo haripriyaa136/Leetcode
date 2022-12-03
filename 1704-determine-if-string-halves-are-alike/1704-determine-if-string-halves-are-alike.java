@@ -1,16 +1,6 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-      List<Character> set =new ArrayList<>();
-        set.add('a');
-        set.add('A');
-        set.add('e');
-        set.add('E');
-        set.add('i');
-        set.add('I');
-        set.add('o');
-        set.add('O');
-        set.add('u');
-        set.add('U');
+      List<Character> set=Arrays.asList('a','A','e','E','i','I','o','O','u','U');
 		//find the mid
         int mid = s.length() / 2;
         int count = 0;

@@ -5,17 +5,8 @@ class Solution {
         for(int i=0;i<s.length();i++)
         {
             char a=s.charAt(i);
-            if(set.contains(a) )
-            {         
-                if(i<mid)
-                {
-                    c1++;
-                }
-                else
-                {
-                    c1--;
-                }
-            }
+           c1 += (set.contains(a) ? ((i < mid) ? 1 : -1) : 0);
+           
         }
         
        return (c1==0);

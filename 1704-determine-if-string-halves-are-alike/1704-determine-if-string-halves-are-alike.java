@@ -1,26 +1,24 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-        //add vowels to the set
-		Set<Character> set = new HashSet<>();
+      List<Character> set =new ArrayList<>();
         set.add('a');
+        set.add('A');
         set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('A');
         set.add('E');
+        set.add('i');
         set.add('I');
+        set.add('o');
         set.add('O');
+        set.add('u');
+        set.add('U');
         set.add('U');
         set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('A');
-        set.add('E');
         set.add('I');
+        set.add('o');
         set.add('O');
+        set.add('u');
         set.add('U');
-        
+        set.add('U');
 		//find the mid
         int mid = s.length() / 2;
         int count = 0;

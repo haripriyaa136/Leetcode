@@ -1,36 +1,29 @@
 class Solution {
+    private int N = 26;
     public boolean closeStrings(String word1, String word2) {
-        Set<Character> set1 =new HashSet<>();
-        Set<Character> set2 =new HashSet<>();
-        int arr1[]=new int[26];
-        int arr2[]=new int[26];
-        for(char ch : word1.toCharArray())
-        {
-            set1.add(ch);
-        }
-        for(char ch : word2.toCharArray())
-        {
-            set2.add(ch);
-        }
-        if(!set1.equals(set2))
-        {
-            return false;
-        }
-        for(char ch:word1.toCharArray())
-        {
-            arr1[ch-'a']++;
-        }
-        for(char ch:word2.toCharArray())
-        {
-            arr2[ch-'a']++;
+		// count the English letters
+        int[] arr1 = new int[N], arr2 = new int[N];
+        for (char ch : word1.toCharArray())
+            arr1[ch - 'a']++;
+        for (char ch : word2.toCharArray())
+            arr2[ch - 'a']++;
+		
+		// if one has a letter which another one doesn't have, dont exist
+        for (int i = 0; i < N; i++) {
+            if (arr1[i] == arr2[i]) {
+                continue;
+            }
+            if (arr1[i] == 0 || arr2[i] == 0) {
+                return false;
+            }
         }
         Arrays.sort(arr1);
         Arrays.sort(arr2);
-        if(!Arrays.equals(arr1,arr2))
-        {
-            return false;
+        for (int i = 0; i < N; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
         }
         return true;
-   
     }
 }

@@ -2,11 +2,15 @@ class Solution {
     public void sortColors(int[] nums) {
         int s=0,e=nums.length-1;
         //  [0, 0, 2, 1, 1, 2]
-        for(int i=0;((i <= e) && (s < e));){
+        int i=0;
+        while((i <= e) && (s < e)){
             
             
             if(nums[i]==0){
-                nums=swap(nums,i,s);
+                
+                int temp=nums[i];
+                nums[i]=nums[s];
+                nums[s]=temp;
                 //System.out.println("Arrray after swap"+nums[i]+" "+ nums[s]);
                // System.out.println(Arrays.toString(nums));
                 s++;
@@ -14,7 +18,9 @@ class Solution {
               
             }
            else if(nums[i]==2){
-                nums=swap(nums,i,e);
+                int temp=nums[i];
+                nums[i]=nums[e];
+                nums[e]=temp;
                 e--;
             }
             else if(nums[i]==1){
@@ -26,12 +32,5 @@ class Solution {
 
         }
     }
-    public int[] swap(int[] arr,int i,int j){
-
-        int temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-        return arr;
-
-    }
+   
 }

@@ -8,9 +8,9 @@ class Solution {
             
             if(nums[i]==0){
                 
-                int temp=nums[i];
+                
                 nums[i]=nums[s];
-                nums[s]=temp;
+                nums[s]=0;
                 //System.out.println("Arrray after swap"+nums[i]+" "+ nums[s]);
                // System.out.println(Arrays.toString(nums));
                 s++;
@@ -18,9 +18,9 @@ class Solution {
               
             }
            else if(nums[i]==2){
-                int temp=nums[i];
+                
                 nums[i]=nums[e];
-                nums[e]=temp;
+                nums[e]=2;
                 e--;
             }
             else if(nums[i]==1){

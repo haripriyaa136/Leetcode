@@ -1,14 +1,16 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        HashSet<Character> hs = new HashSet<>();
+        boolean[] letters  = new boolean[26];
         
-        for(char ch:sentence.toCharArray())
-        {
-            hs.add(ch);
-            
+        for(char c : sentence.toCharArray()) {
+            letters[c - 'a'] = true;
         }
-        return hs.size()==26;
-       
         
+        //find any letter that not exist
+        for(boolean existLetter : letters) {
+            if(!existLetter) return false;
+        }
+        
+        return true;
     }
 }

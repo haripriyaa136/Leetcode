@@ -1,35 +1,41 @@
 class BrowserHistory {
-    ArrayList<String> al;
-    int werIn = -1;
-    int end;
+    Stack<String> stk;
+    Stack<String> helper;
     public BrowserHistory(String homepage) {
-        al = new ArrayList<String>();
-        al.add(homepage);
-        werIn=0;
-        end=0;
+        stk = new Stack<String>();
+        helper = new Stack<String>();
+        stk.push(homepage);
     }
     
     public void visit(String url) {
-       werIn++;
-        al.add(werIn,url);
-        end=werIn;
-        
+        while(helper.size()!=0){
+            helper.pop();
+        }
+        stk.push(url);
+       
     }
     
     public String back(int steps) {
-       // werIn-=steps;
-       int temp=werIn-steps;
-       werIn=Math.max(0,temp);
-        return al.get(werIn);
-        
+        for(int i=0;i<steps;i++){
+            if(stk.size()==1){
+                break;
+            }
+            helper.push(stk.pop());
+        }
+        return stk.peek();
+      
     }
     
     public String forward(int steps) {
-         int temp=werIn+steps;
-       werIn=Math.min(end,temp);
-        return al.get(werIn);
-        // werIn+=steps;
-        // return al.get(Math.min(end,werIn));
+          for(int i=0;i<steps;i++){
+            if(helper.size()==0){
+                break;
+            }
+            stk.push(helper.pop());
+        }
+        return stk.peek();
+      
+       
     }
 }
 
